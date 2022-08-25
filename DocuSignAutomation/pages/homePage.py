@@ -22,6 +22,7 @@ class Home_Page():
         self.recipient_email2 = "(//input[@data-qa='recipient-email'])[2]"
         self.next_button = "button[data-callout='footer-prepare-next-action']"
         self.upload_file_input = "input[data-qa='upload-file-input']"
+        self.close_button = "wootric-x"
 
     def upload_documents(self, name_app1, email_app1, name_app2, email_app2, docfile=False):
         WebDriverWait(self.driver, 60).until(EC.element_to_be_clickable((
@@ -39,6 +40,34 @@ class Home_Page():
         else:
             browse_button.send_keys(pdf_file)
         time.sleep(10)
+        self.driver.find_element('class name', self.set_signing_order).click()
+        self.driver.find_element('css selector', self.add_recipients).click()
+        time.sleep(5)
+        self.driver.find_element('xpath', self.recipient_name1).send_keys(name_app1)
+        self.driver.find_element('xpath', self.recipient_email1).send_keys(email_app1)
+        self.driver.find_element('xpath', self.recipient_name2).send_keys(name_app2)
+        self.driver.find_element('xpath', self.recipient_email2).send_keys(email_app2)
+        time.sleep(2)
+        self.driver.find_element('css selector', self.next_button).click()
+        time.sleep(5)
+
+    def upload_document2(self, name_app1, email_app1, name_app2, email_app2, docfile=False):
+        WebDriverWait(self.driver, 60).until(EC.element_to_be_clickable((
+            'css selector', self.start_button))).click()
+        self.driver.find_element('css selector', self.send_envelope).click()
+        time.sleep(10)
+        doc_file = "/Users/apparaojajimoggala/DRAFT-CC-2022-003-DocuSign-Regression-PQ.03.docx"
+        pdf_file = "/Users/apparaojajimoggala/DocuSign-Regression-PQ.pdf"
+        self.driver.find_element('css selector', self.upload_file_button).click()
+        time.sleep(5)
+        browse_button = self.driver.find_element('css selector', self.upload_file_input)
+        time.sleep(5)
+        if docfile == True:
+            browse_button.send_keys(doc_file)
+        else:
+            browse_button.send_keys(pdf_file)
+        time.sleep(10)
+        self.driver.find_element('id', self.close_button)
         self.driver.find_element('class name', self.set_signing_order).click()
         self.driver.find_element('css selector', self.add_recipients).click()
         time.sleep(5)
