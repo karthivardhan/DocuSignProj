@@ -33,8 +33,13 @@ class Scroll():
 
     def scroll_page(self):
         self.driver.find_element('css selector', "button[data-qa='tutorial-got-it']").click()
-        # self.driver.find_element('css selector', "button[class='css-quz66i']").click()
+        # self.driver.find_element('css selector', 'c241').click()
         # self.driver.find_element('css selector', "[class='css-1nsshgk']").click()
-        time.sleep(10)
+        time.sleep(5)
         self.driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+        time.sleep(10)
+
+    def logout(self):
+        self.driver.find_element("css selector", "button[data-qa='header-profile-menu-button']").click()
+        self.driver.find_element('css selector', "button[data-qa='header-logoff-button']").click()
         time.sleep(10)

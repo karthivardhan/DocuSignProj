@@ -1,7 +1,7 @@
 # URLs:
 baseUrl = "https://account-d.docusign.com"
 
-# User name:
+# UserName:
 approver1Name = "Docusign Approver1"
 approver2Name = "Docusign Approver2"
 
