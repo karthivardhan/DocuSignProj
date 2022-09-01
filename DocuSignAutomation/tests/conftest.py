@@ -16,7 +16,6 @@ def test_setup(request):
     if browser == "chrome":
         service = Service(executable_path=ChromeDriverManager().install())
         driver = webdriver.Chrome(service=service)
-        #driver = webdriver.Chrome(ChromeDriverManager().install())
     elif browser == "firefox":
         driver = webdriver.Firefox()
     elif browser == "safari":

@@ -14,3 +14,6 @@ approver2Email = "docusignapprover2@gmail.com"
 senderPassword = "Pharmatek@321"
 approver1Password = "Pharmatek@321"
 approver2Password = "Pharmatek@321"
+
+# Data:
+envelope_name = "'DocuSign-Regression-PQ.pdf'"
